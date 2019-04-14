@@ -14,17 +14,18 @@ def move(array, index, value = "X")
   array[index] = value 
 end
 
-def get_input(gput)
-  gput2 = gets gput.strip
-end
+def valid_move()
 
 def turn(board)
   puts "Please enter 1-9:"
-  get_input(gput)
-  if gput == turn(board)
-    puts "true"
-  else
-    puts "Please enter 1-9:"
-  until move(board) == true
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(board, index)
+move(board, index)
+display_board(board)
+else
+  turn(board)
 end
 end
+
+
